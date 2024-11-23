@@ -1,0 +1,42 @@
+<h2 class="mb-5">
+   @if (contact) {
+    Editar
+   } @else {
+    Nuevo
+   } Contacto
+</h2>
+
+<div class="row row-cols-3 justify-content-center">
+    @if(form){
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <div class="mb-3">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="telefono">Telefono</label>
+                <input id="telefono" type="text" placeholder="Telefono" class="form-control" formControlName="telefono">
+            </div>
+            <div class="mb-3">
+                <label for="direccion">Direccion</label>
+                <input id="direccion" type="text" placeholder="Direccion" class="form-control" formControlName="direccion">
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn btn-light" routerLink="/">
+                    Cancelar
+                </button>
+                <button class="btn btn-primary ms-2">
+                    @if (contact) {
+                        Actualiza
+                       } @else {
+                        Crear
+                       } Contacto
+                </button>
+            </div>
+        </form>
+    }
+</div>
